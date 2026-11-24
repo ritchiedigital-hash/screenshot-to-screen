@@ -10,7 +10,7 @@ export const Route = createFileRoute("/gallery")({
   component: Gallery,
 });
 
-const ORDER = [PHOTOS.kitchenIsland, PHOTOS.holidayBedroom, PHOTOS.benchtopSink, PHOTOS.livingRoom, PHOTOS.cleanOven, PHOTOS.guestBedroom, PHOTOS.cleanBath, PHOTOS.kitchenGalley];
+const ORDER = [PHOTOS.kitchenIsland, PHOTOS.showerBathroom, PHOTOS.holidayBedroom, PHOTOS.timberStaircase, PHOTOS.benchtopSink, PHOTOS.livingRoom, PHOTOS.cleanOven, PHOTOS.guestBedroom, PHOTOS.twinBedroom, PHOTOS.cleanBath, PHOTOS.kitchenGalley];
 
 function Gallery() {
   const [active, setActive] = useState<(typeof ORDER)[number] | null>(null);

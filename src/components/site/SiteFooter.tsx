@@ -2,20 +2,14 @@ import { Link } from "@tanstack/react-router";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { BUSINESS, NAV } from "@/lib/site";
 import { FacebookIcon, InstagramIcon } from "./Icons";
-import { HaloMark } from "./Logo";
+import { LogoImage } from "./Logo";
 
 export function SiteFooter() {
   return (
     <footer className="bg-navy-deep text-primary-foreground">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2.5">
-            <HaloMark className="h-12 w-14" />
-            <div className="leading-none">
-              <div className="text-[0.6rem] tracking-[0.35em] uppercase opacity-70">Cleaning</div>
-              <div className="font-script text-4xl">Angels</div>
-            </div>
-          </div>
+          <LogoImage className="size-28" />
           <p className="mt-4 font-display text-xl italic opacity-90">{BUSINESS.slogan}</p>
         </div>
         <div>

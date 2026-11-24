@@ -88,7 +88,7 @@ function Home() {
       <section className="pb-16 sm:pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3">
-            {[PHOTOS.benchtopSink, PHOTOS.cleanBath, PHOTOS.guestBedroom].map((p, i) => (
+            {[PHOTOS.showerBathroom, PHOTOS.benchtopSink, PHOTOS.twinBedroom].map((p, i) => (
               <Reveal key={p.src} delay={i * 80} className={i === 2 ? "col-span-2 md:col-span-1" : ""}>
                 <img src={p.src} alt={p.alt} loading="lazy" className="aspect-square w-full rounded-2xl object-cover md:aspect-[4/5]" />
               </Reveal>

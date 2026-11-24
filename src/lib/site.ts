@@ -5,6 +5,10 @@ import cleanOven from "@/assets/photos/clean-oven.jpg.asset.json";
 import holidayBedroom from "@/assets/photos/holiday-bedroom.jpg.asset.json";
 import kitchenGalley from "@/assets/photos/kitchen-galley.jpg.asset.json";
 import cleanBath from "@/assets/photos/clean-bath.jpg.asset.json";
+import twinBedroom from "@/assets/photos/twin-bedroom.jpg.asset.json";
+import showerBathroom from "@/assets/photos/shower-bathroom.jpg.asset.json";
+import timberStaircase from "@/assets/photos/timber-staircase.jpg.asset.json";
+import logoAsset from "@/assets/brand/logo.jpg.asset.json";
 import guestBedroom from "@/assets/photos/guest-bedroom.jpg.asset.json";
 
 export const BUSINESS = {
@@ -19,7 +23,12 @@ export const BUSINESS = {
   facebook: "https://www.facebook.com/p/Cleaning-Angels-61589612488675/",
 } as const;
 
+export const LOGO_URL = logoAsset.url;
+
 export const PHOTOS = {
+  twinBedroom: { src: twinBedroom.url, alt: "Twin bedroom freshly made and cleaned for guests" },
+  showerBathroom: { src: showerBathroom.url, alt: "Sparkling glass shower, vanity and tiled floor after a bathroom clean" },
+  timberStaircase: { src: timberStaircase.url, alt: "Polished timber staircase and floors cleaned in a Maclean home" },
   kitchenIsland: { src: kitchenIsland.url, alt: "Bright white kitchen with spotless island benchtop after a clean in Maclean" },
   livingRoom: { src: livingRoom.url, alt: "Freshly cleaned open living area with polished timber floors" },
   benchtopSink: { src: benchtopSink.url, alt: "Gleaming stone benchtop and stainless steel sink after cleaning" },

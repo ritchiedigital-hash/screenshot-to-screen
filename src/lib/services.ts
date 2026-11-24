@@ -24,7 +24,7 @@ export const SERVICES: Service[] = [
       "Regular visits keep kitchens, bathrooms, floors and living spaces consistently clean, so you can spend your time on the things you enjoy.",
     ],
     icon: House,
-    photo: PHOTOS.benchtopSink,
+    photo: PHOTOS.showerBathroom,
   },
   {
     id: "end-of-lease-cleans",
