@@ -46,7 +46,10 @@ export function QuoteForm() {
     return (
       <div role="status" className="card-soft flex flex-col items-center p-10 text-center">
         <CheckCircle2 className="size-12 text-sky" />
-        <p className="mt-4 text-lg text-primary">Thank you! Your enquiry has been sent to Cleaning Angels. We'll be in touch as soon as possible.</p>
+        <p className="mt-4 text-lg text-primary">Your quote request has been saved.</p>
+        <p className="mt-3 text-muted-foreground">Email delivery is not connected yet. Please call or email Cleaning Angels to confirm your enquiry.</p>
+        <a href={BUSINESS.phoneHref} className="mt-4 font-semibold text-primary underline">{BUSINESS.phone}</a>
+        <a href={`mailto:${BUSINESS.email}`} className="mt-2 break-all text-primary underline">{BUSINESS.email}</a>
         <Button variant="soft" className="mt-6" onClick={() => setStatus("idle")}>Send another enquiry</Button>
       </div>
     );
@@ -56,7 +59,8 @@ export function QuoteForm() {
   const aria = (k: string) => (errors[k] ? { "aria-invalid": true, "aria-describedby": `${k}-error` } : {});
 
   return (
-    <form onSubmit={onSubmit} noValidate className="card-soft grid gap-5 p-5 sm:grid-cols-2 sm:p-8">
+    <form onSubmit={onSubmit} noValidate aria-busy={status === "sending"} className="card-soft grid min-w-0 gap-5 p-5 sm:grid-cols-2 sm:p-8">
+      <p className="text-sm text-muted-foreground sm:col-span-2">Online requests are saved securely. Email delivery is not connected yet; please call or email to confirm your enquiry.</p>
       <div><Label htmlFor="name">Name *</Label><Input id="name" name="name" autoComplete="name" required className={`mt-2 ${field}`} {...aria("name")} />{err("name")}</div>
       <div><Label htmlFor="phone">Phone Number *</Label><Input id="phone" name="phone" type="tel" autoComplete="tel" required className={`mt-2 ${field}`} {...aria("phone")} />{err("phone")}</div>
       <div><Label htmlFor="email">Email Address *</Label><Input id="email" name="email" type="email" autoComplete="email" required className={`mt-2 ${field}`} {...aria("email")} />{err("email")}</div>

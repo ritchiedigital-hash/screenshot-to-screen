@@ -84,7 +84,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Cleaning Angels | Professional Cleaning Services Maclean NSW" },
-      { name: "description", content: "Professional home cleaning in Maclean, Yamba and all local areas up to Ballina." },
+      { name: "description", content: "Professional home cleaning in Maclean and surrounding areas." },
       { name: "author", content: "Cleaning Angels" },
       { property: "og:site_name", content: "Cleaning Angels" },
       { property: "og:locale", content: "en_AU" },

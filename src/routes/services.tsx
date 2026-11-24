@@ -8,7 +8,7 @@ import { pageHead } from "@/lib/site";
 import { SERVICES } from "@/lib/services";
 
 export const Route = createFileRoute("/services")({
-  head: () => pageHead("Cleaning Services Maclean | Deep, End of Lease & Airbnb Cleans", "House cleaning, deep cleaning, end of lease cleaning and Airbnb / holiday cleaning in Maclean, Yamba and all local areas up to Ballina. Request a tailored quote."),
+   head: () => pageHead("Cleaning Services Maclean | Cleaning Angels", "House cleaning, deep cleaning, end of lease cleaning and Airbnb / holiday cleaning in Maclean and surrounding areas. Request a tailored quote."),
   component: Services,
 });
 

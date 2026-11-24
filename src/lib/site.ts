@@ -19,7 +19,10 @@ export const BUSINESS = {
   phoneHref: "tel:+61450385771",
   email: "cleaningangels2@outlook.com",
   location: "Maclean NSW",
-  area: "Maclean, Yamba & all local areas up to Ballina",
+  contactLocation: "McPhee Street, Maclean NSW",
+  area: "Maclean & surrounding areas",
+  supportingStatement: "We deliver exceptional cleaning services with care, quality, and attention to detail.",
+  additionalStatement: "We create happy, clean spaces for all our clientele to enjoy.",
   facebook: "https://www.facebook.com/p/Cleaning-Angels-61589612488675/",
 } as const;
 
