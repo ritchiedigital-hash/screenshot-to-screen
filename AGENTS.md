@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Quote enquiries are saved server-side via a createServerFn into `quote_requests` (RLS on, no public policies) — the success message shows only after the save succeeds.
+- Shared business details, photos and nav live in `src/lib/site.ts`; service copy in `src/lib/services.ts` so pages never duplicate contact info.
