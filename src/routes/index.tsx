@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
   head: () =>
     pageHead(
       "Cleaning Angels | Professional Cleaning Services Maclean NSW",
-      "Cleaning Angels provides professional home cleaning, deep cleaning, end-of-lease cleaning and Airbnb/holiday cleaning throughout Maclean and surrounding areas. Request a quote today.",
+      "Cleaning Angels provides professional home cleaning, deep cleaning, end-of-lease cleaning and Airbnb/holiday cleaning throughout Maclean, Yamba and all local areas up to Ballina. Request a quote today.",
     ),
   component: Home,
 });
@@ -29,7 +29,7 @@ function Home() {
               <span className="block font-script text-6xl font-normal text-sky sm:text-7xl lg:text-8xl">Our Passion</span>
             </h1>
             <p className="mt-5 max-w-md text-base text-foreground/80 sm:text-lg">
-              Exceptional cleaning services delivered with care, quality and attention to detail throughout Maclean and surrounding areas.
+              Exceptional cleaning services delivered with care, quality and attention to detail throughout Maclean, Yamba and all local areas up to Ballina.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button asChild variant="hero" size="xl"><Link to="/contact" hash="quote">Request a Quote <ArrowRight /></Link></Button>
@@ -73,7 +73,7 @@ function Home() {
             <p className="eyebrow">About Cleaning Angels</p>
             <h2 className="mt-2 text-4xl text-primary sm:text-5xl">Cleaning with Care</h2>
             <div className="mt-5 space-y-4 text-foreground/80">
-              <p>Cleaning Angels is a locally operated cleaning business proudly servicing Maclean and surrounding areas.</p>
+              <p>Cleaning Angels is a locally operated cleaning business proudly servicing Maclean, Yamba and all local areas up to Ballina.</p>
               <p>We believe a clean home should feel fresh, comfortable and welcoming. Every clean is completed with care, attention to detail and respect for our clients' homes.</p>
               <p>From regular household cleaning through to deep cleans, end-of-lease services and holiday accommodation, our focus is simple — dependable service and a beautifully clean result.</p>
             </div>

@@ -19,7 +19,7 @@ export const BUSINESS = {
   phoneHref: "tel:+61450385771",
   email: "cleaningangels2@outlook.com",
   location: "Maclean NSW",
-  area: "Maclean & surrounding areas",
+  area: "Maclean, Yamba & all local areas up to Ballina",
   facebook: "https://www.facebook.com/p/Cleaning-Angels-61589612488675/",
 } as const;
 

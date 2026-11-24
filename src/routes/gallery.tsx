@@ -6,7 +6,7 @@ import { CtaBand } from "@/components/site/CtaBand";
 import { PHOTOS, pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/gallery")({
-  head: () => pageHead("Gallery | Cleaning Angels Maclean NSW", "Real results from Cleaning Angels: kitchens, bathrooms, bedrooms, ovens and holiday accommodation cleaned throughout Maclean and surrounding areas."),
+  head: () => pageHead("Gallery | Cleaning Angels Maclean NSW", "Real results from Cleaning Angels: kitchens, bathrooms, bedrooms, ovens and holiday accommodation cleaned throughout Maclean, Yamba and all local areas up to Ballina."),
   component: Gallery,
 });
 

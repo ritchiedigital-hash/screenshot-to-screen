@@ -7,14 +7,14 @@ import { CtaBand } from "@/components/site/CtaBand";
 import { PHOTOS, pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/about")({
-  head: () => pageHead("About Cleaning Angels | Local Cleaner in Maclean NSW", "Cleaning Angels is a locally owned and operated cleaning business servicing Maclean NSW and surrounding areas with care and attention to detail."),
+  head: () => pageHead("About Cleaning Angels | Local Cleaner in Maclean NSW", "Cleaning Angels is a locally owned and operated cleaning business servicing Maclean, Yamba and all local areas up to Ballina with care and attention to detail."),
   component: About,
 });
 
 const VALUES = [
   { icon: Heart, title: "Care", text: "Every home is treated with respect, as if it were our own." },
   { icon: Sparkles, title: "Attention to detail", text: "The little things are what make a clean feel truly finished." },
-  { icon: MapPin, title: "Local", text: "Proudly based in Maclean and servicing the surrounding areas." },
+  { icon: MapPin, title: "Local", text: "Proudly based in Maclean and servicing Yamba and all local areas up to Ballina." },
 ];
 
 function About() {
@@ -31,7 +31,7 @@ function About() {
           <Reveal delay={100}>
             <h2 className="text-4xl text-primary">A clean home should feel welcoming</h2>
             <div className="mt-5 space-y-4 text-foreground/80">
-              <p>Cleaning Angels is a locally operated cleaning business proudly servicing Maclean and surrounding areas.</p>
+              <p>Cleaning Angels is a locally operated cleaning business proudly servicing Maclean, Yamba and all local areas up to Ballina.</p>
               <p>We believe a clean home should feel fresh, comfortable and welcoming. Every clean is completed with care, attention to detail and respect for our clients' homes.</p>
               <p>From regular household cleaning through to deep cleans, end-of-lease services and holiday accommodation, our focus is simple — dependable service and a beautifully clean result.</p>
             </div>

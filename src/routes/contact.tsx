@@ -6,7 +6,7 @@ import { FacebookIcon } from "@/components/site/Icons";
 import { BUSINESS, pageHead } from "@/lib/site";
 
 export const Route = createFileRoute("/contact")({
-  head: () => pageHead("Contact & Request a Quote | Cleaning Angels Maclean", "Request a cleaning quote from Cleaning Angels. Servicing Maclean NSW and surrounding areas. Call 0450 385 771 or send an enquiry online."),
+  head: () => pageHead("Contact & Request a Quote | Cleaning Angels Maclean", "Request a cleaning quote from Cleaning Angels. Servicing Maclean, Yamba and all local areas up to Ballina. Call 0450 385 771 or send an enquiry online."),
   component: Contact,
 });
 
@@ -35,7 +35,7 @@ function Contact() {
         <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_1.6fr]">
           <div>
             <p className="eyebrow">Service area</p>
-            <h2 className="mt-2 text-3xl text-primary sm:text-4xl">Proudly servicing Maclean & surrounding areas</h2>
+            <h2 className="mt-2 text-3xl text-primary sm:text-4xl">Proudly servicing Maclean, Yamba & all local areas up to Ballina</h2>
             <p className="mt-3 text-muted-foreground">Not sure if we cover your suburb? Send an enquiry and we'll let you know.</p>
           </div>
           <iframe
