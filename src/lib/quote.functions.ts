@@ -84,7 +84,7 @@ export const submitQuote = createServerFn({ method: "POST" })
     const mark = async (col: "business_email_sent_at" | "customer_email_sent_at") => {
       if (!db || !row) return;
       try {
-        await db.from("quote_requests").update({ [col]: new Date().toISOString() }).eq("id", row.id);
+        await db.from("quote_requests").update(col === "business_email_sent_at" ? { business_email_sent_at: new Date().toISOString() } : { customer_email_sent_at: new Date().toISOString() }).eq("id", row.id);
       } catch (e) {
         console.error("could not record email send", e instanceof Error ? e.message : String(e));
       }
