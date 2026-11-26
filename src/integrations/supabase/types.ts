@@ -16,7 +16,10 @@ export type Database = {
     Tables: {
       quote_requests: {
         Row: {
+          business_email_sent_at: string | null
+          client_hash: string | null
           created_at: string
+          customer_email_sent_at: string | null
           email: string
           id: string
           message: string
@@ -24,10 +27,14 @@ export type Database = {
           phone: string
           preferred_date: string | null
           service: string
+          submission_id: string | null
           suburb: string
         }
         Insert: {
+          business_email_sent_at?: string | null
+          client_hash?: string | null
           created_at?: string
+          customer_email_sent_at?: string | null
           email: string
           id?: string
           message: string
@@ -35,10 +42,14 @@ export type Database = {
           phone: string
           preferred_date?: string | null
           service: string
+          submission_id?: string | null
           suburb: string
         }
         Update: {
+          business_email_sent_at?: string | null
+          client_hash?: string | null
           created_at?: string
+          customer_email_sent_at?: string | null
           email?: string
           id?: string
           message?: string
@@ -46,6 +57,7 @@ export type Database = {
           phone?: string
           preferred_date?: string | null
           service?: string
+          submission_id?: string | null
           suburb?: string
         }
         Relationships: []

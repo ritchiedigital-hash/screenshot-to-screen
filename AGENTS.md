@@ -29,5 +29,5 @@ use the editor.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
 
-- Quote enquiries are saved server-side via a createServerFn into `quote_requests` (RLS on, no public policies); acknowledge a saved request only after persistence succeeds and never imply email delivery until a server-side email service confirms it.
+- Quote enquiries are saved server-side via createServerFn into `quote_requests`, then emailed (owner alert + customer acknowledgement) via the Resend connector gateway; per-email sent timestamps + submission_id prevent duplicate sends. Never imply delivery unless the send succeeded.
 - Shared business details, photos and nav live in `src/lib/site.ts`; service copy in `src/lib/services.ts` so pages never duplicate contact info.

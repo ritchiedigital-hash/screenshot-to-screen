@@ -9,19 +9,21 @@ import { BUSINESS, SERVICE_OPTIONS } from "@/lib/site";
 import { quoteSchema } from "@/lib/quote.schema";
 import { submitQuote } from "@/lib/quote.functions";
 
-type Status = "idle" | "sending" | "success" | "error";
+type Status = "idle" | "sending" | "success" | "saved" | "limited" | "error";
 const field = "h-12 rounded-xl bg-card text-base";
 
 export function QuoteForm() {
   const send = useServerFn(submitQuote);
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submissionId, setSubmissionId] = useState(() => crypto.randomUUID());
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
     const raw = Object.fromEntries(new FormData(form).entries());
     const parsed = quoteSchema.safeParse(raw);
+    const honeypot = String(raw["website"] ?? "");
     if (!parsed.success) {
       const errs: Record<string, string> = {};
       for (const issue of parsed.error.issues) {
@@ -32,22 +34,28 @@ export function QuoteForm() {
       return;
     }
     setErrors({});
+    if (status === "sending") return;
     setStatus("sending");
     try {
-      await send({ data: parsed.data });
-      setStatus("success");
-      form.reset();
+      const res = await send({ data: { ...parsed.data, submissionId, website: honeypot } });
+      if (res.ok) {
+        setStatus(res.emailed ? "success" : "saved");
+        form.reset();
+        setSubmissionId(crypto.randomUUID());
+      } else {
+        setStatus(res.reason === "rate_limited" ? "limited" : "error");
+      }
     } catch {
       setStatus("error");
     }
   }
 
-  if (status === "success") {
+  if (status === "success" || status === "saved") {
     return (
       <div role="status" className="card-soft flex flex-col items-center p-10 text-center">
         <CheckCircle2 className="size-12 text-sky" />
-        <p className="mt-4 text-lg text-primary">Your quote request has been saved.</p>
-        <p className="mt-3 text-muted-foreground">Email delivery is not connected yet. Please call or email Cleaning Angels to confirm your enquiry.</p>
+        <p className="mt-4 text-lg text-primary">{status === "success" ? "Thank you — your enquiry has been sent." : "Your quote request has been saved."}</p>
+        <p className="mt-3 text-muted-foreground">{status === "success" ? "A confirmation email is on its way. Your booking is not confirmed until we contact you directly." : "We couldn't send a confirmation email right now. Please call or email Cleaning Angels to confirm your enquiry."}</p>
         <a href={BUSINESS.phoneHref} className="mt-4 font-semibold text-primary underline">{BUSINESS.phone}</a>
         <a href={`mailto:${BUSINESS.email}`} className="mt-2 break-all text-primary underline">{BUSINESS.email}</a>
         <Button variant="soft" className="mt-6" onClick={() => setStatus("idle")}>Send another enquiry</Button>
@@ -59,8 +67,8 @@ export function QuoteForm() {
   const aria = (k: string) => (errors[k] ? { "aria-invalid": true, "aria-describedby": `${k}-error` } : {});
 
   return (
-    <form onSubmit={onSubmit} noValidate aria-busy={status === "sending"} className="card-soft grid min-w-0 gap-5 p-5 sm:grid-cols-2 sm:p-8">
-      <p className="text-sm text-muted-foreground sm:col-span-2">Online requests are saved securely. Email delivery is not connected yet; please call or email to confirm your enquiry.</p>
+    <form onSubmit={onSubmit} noValidate aria-busy={status === "sending"} className="card-soft relative grid min-w-0 gap-5 p-5 sm:grid-cols-2 sm:p-8">
+      <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden"><label htmlFor="website">Website</label><input id="website" name="website" tabIndex={-1} autoComplete="off" /></div>
       <div><Label htmlFor="name">Name *</Label><Input id="name" name="name" autoComplete="name" required className={`mt-2 ${field}`} {...aria("name")} />{err("name")}</div>
       <div><Label htmlFor="phone">Phone Number *</Label><Input id="phone" name="phone" type="tel" autoComplete="tel" required className={`mt-2 ${field}`} {...aria("phone")} />{err("phone")}</div>
       <div><Label htmlFor="email">Email Address *</Label><Input id="email" name="email" type="email" autoComplete="email" required className={`mt-2 ${field}`} {...aria("email")} />{err("email")}</div>
@@ -75,6 +83,11 @@ export function QuoteForm() {
       </div>
       <div><Label htmlFor="preferredDate">Preferred Cleaning Date</Label><Input id="preferredDate" name="preferredDate" type="date" className={`mt-2 ${field}`} /></div>
       <div className="sm:col-span-2"><Label htmlFor="message">Message / Tell Us What You Need *</Label><Textarea id="message" name="message" rows={5} required className="mt-2 rounded-xl bg-card text-base" {...aria("message")} />{err("message")}</div>
+      {status === "limited" && (
+        <p role="alert" className="rounded-xl border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive sm:col-span-2">
+          You've sent a few enquiries in a short time. Please wait a few minutes, or call <a href={BUSINESS.phoneHref} className="font-semibold underline">{BUSINESS.phone}</a>.
+        </p>
+      )}
       {status === "error" && (
         <p role="alert" className="rounded-xl border border-destructive/30 bg-destructive/5 p-4 text-sm text-destructive sm:col-span-2">
           Sorry, we couldn't send your enquiry. Please contact Cleaning Angels directly by phone or email.{" "}
