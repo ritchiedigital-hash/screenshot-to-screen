@@ -29,6 +29,6 @@ use the editor.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
 
-- Quote enquiries are saved server-side via createServerFn into `quote_requests`, then emailed (owner alert + customer acknowledgement) via the Resend connector gateway; per-email sent timestamps + submission_id prevent duplicate sends. Never imply delivery unless the send succeeded.
+- Quote enquiries are saved server-side via createServerFn into `quote_requests`, then emailed (owner alert + customer acknowledgement) directly via the Resend API (RESEND_API_KEY runtime secret); DB storage is best-effort so emails still send if the database is unreachable; per-email sent timestamps + submission_id prevent duplicate sends. Never imply delivery unless the send succeeded.
 - Shared business details, photos and nav live in `src/lib/site.ts`; service copy in `src/lib/services.ts` so pages never duplicate contact info.
 - Production images live in `public/images` and use root-relative URLs so both Lovable and the external Cloudflare deployment serve the same files; never restore environment-only `/__l5e/` URLs.

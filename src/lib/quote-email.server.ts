@@ -1,6 +1,6 @@
 import type { QuoteInput } from "./quote.schema";
 
-const GATEWAY_URL = "https://connector-gateway.lovable.dev/resend";
+const RESEND_URL = "https://api.resend.com/emails";
 export const FROM = "Cleaning Angels <bookings@cleaningangels.com.au>";
 export const OWNER_EMAIL = "cleaningangels2@outlook.com";
 
@@ -54,7 +54,7 @@ export function businessEmail(q: QuoteInput) {
 <p style="font-size:13px;margin-top:18px">Reply to this email to respond directly to ${escapeHtml(q.name)}.</p>`,
   );
   const text = rows.map(([k, v]) => `${k}: ${v}`).join("\n");
-  return { subject: "New Website Booking Enquiry — Cleaning Angels", html, text };
+  return { subject: "New Website Quote Request — Cleaning Angels", html, text };
 }
 
 export function customerEmail(q: QuoteInput) {
@@ -99,19 +99,17 @@ export async function sendEmail(args: {
   text: string;
   idempotencyKey: string;
 }): Promise<boolean> {
-  const lovableKey = process.env["LOVABLE_API_KEY"];
   const resendKey = process.env["RESEND_API_KEY"];
-  if (!lovableKey || !resendKey) {
-    console.error("email not configured: missing LOVABLE_API_KEY or RESEND_API_KEY");
+  if (!resendKey) {
+    console.error("email not configured: RESEND_API_KEY missing from runtime environment");
     return false;
   }
   try {
-    const res = await fetch(`${GATEWAY_URL}/emails`, {
+    const res = await fetch(RESEND_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${lovableKey}`,
-        "X-Connection-Api-Key": resendKey,
+        Authorization: `Bearer ${resendKey}`,
         "Idempotency-Key": args.idempotencyKey,
       },
       body: JSON.stringify({
@@ -124,7 +122,7 @@ export async function sendEmail(args: {
       }),
     });
     if (!res.ok) {
-      console.error(`email send failed [${res.status}]: ${await res.text()}`);
+      console.error(`Resend send failed [${res.status}] (${args.idempotencyKey.split("-").slice(0, 2).join("-")}): ${(await res.text()).slice(0, 300)}`);
       return false;
     }
     return true;

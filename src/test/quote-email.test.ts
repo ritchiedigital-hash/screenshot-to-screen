@@ -10,7 +10,7 @@ describe("quote emails", () => {
     expect(customerEmail(q).html).toContain("Hi &lt;b&gt;Sam&lt;/b&gt;,");
   });
   it("uses the approved subjects", () => {
-    expect(businessEmail(q).subject).toBe("New Website Booking Enquiry — Cleaning Angels");
+    expect(businessEmail(q).subject).toBe("New Website Quote Request — Cleaning Angels");
     expect(customerEmail(q).subject).toBe("We've Received Your Enquiry — Cleaning Angels");
   });
 });
