@@ -1,16 +1,3 @@
-import kitchenIsland from "@/assets/photos/kitchen-island.jpg.asset.json";
-import livingRoom from "@/assets/photos/living-room.jpg.asset.json";
-import benchtopSink from "@/assets/photos/benchtop-sink.jpg.asset.json";
-import cleanOven from "@/assets/photos/clean-oven.jpg.asset.json";
-import holidayBedroom from "@/assets/photos/holiday-bedroom.jpg.asset.json";
-import kitchenGalley from "@/assets/photos/kitchen-galley.jpg.asset.json";
-import cleanBath from "@/assets/photos/clean-bath.jpg.asset.json";
-import twinBedroom from "@/assets/photos/twin-bedroom.jpg.asset.json";
-import showerBathroom from "@/assets/photos/shower-bathroom.jpg.asset.json";
-import timberStaircase from "@/assets/photos/timber-staircase.jpg.asset.json";
-import logoAsset from "@/assets/brand/logo.jpg.asset.json";
-import guestBedroom from "@/assets/photos/guest-bedroom.jpg.asset.json";
-
 export const BUSINESS = {
   name: "Cleaning Angels",
   slogan: "Your Home, Our Passion",
@@ -26,20 +13,20 @@ export const BUSINESS = {
   facebook: "https://www.facebook.com/p/Cleaning-Angels-61589612488675/",
 } as const;
 
-export const LOGO_URL = logoAsset.url;
+export const LOGO_URL = "/images/cleaning-angels-logo.jpg";
 
 export const PHOTOS = {
-  twinBedroom: { src: twinBedroom.url, alt: "Twin bedroom freshly made and cleaned for guests" },
-  showerBathroom: { src: showerBathroom.url, alt: "Sparkling glass shower, vanity and tiled floor after a bathroom clean" },
-  timberStaircase: { src: timberStaircase.url, alt: "Polished timber staircase and floors cleaned in a Maclean home" },
-  kitchenIsland: { src: kitchenIsland.url, alt: "Bright white kitchen with spotless island benchtop after a clean in Maclean" },
-  livingRoom: { src: livingRoom.url, alt: "Freshly cleaned open living area with polished timber floors" },
-  benchtopSink: { src: benchtopSink.url, alt: "Gleaming stone benchtop and stainless steel sink after cleaning" },
-  cleanOven: { src: cleanOven.url, alt: "Oven interior and racks cleaned to a shine" },
-  holidayBedroom: { src: holidayBedroom.url, alt: "Holiday accommodation bedroom prepared and presented for guests" },
-  kitchenGalley: { src: kitchenGalley.url, alt: "Clean kitchen with wiped cabinets and timber floors ready for new tenants" },
-  cleanBath: { src: cleanBath.url, alt: "Sparkling clean bathtub and tiled bathroom wall" },
-  guestBedroom: { src: guestBedroom.url, alt: "Neatly made guest bedroom after an Airbnb turnover clean" },
+  twinBedroom: { src: "/images/twin-bedroom.jpg", alt: "Twin bedroom freshly made and cleaned for guests" },
+  showerBathroom: { src: "/images/shower-bathroom.jpg", alt: "Sparkling glass shower, vanity and tiled floor after a bathroom clean" },
+  timberStaircase: { src: "/images/timber-staircase.jpg", alt: "Polished timber staircase and floors cleaned in a Maclean home" },
+  kitchenIsland: { src: "/images/kitchen-island.jpg", alt: "Bright white kitchen with spotless island benchtop after a clean in Maclean" },
+  livingRoom: { src: "/images/living-room.jpg", alt: "Freshly cleaned open living area with polished timber floors" },
+  benchtopSink: { src: "/images/benchtop-sink.jpg", alt: "Gleaming stone benchtop and stainless steel sink after cleaning" },
+  cleanOven: { src: "/images/clean-oven.jpg", alt: "Oven interior and racks cleaned to a shine" },
+  holidayBedroom: { src: "/images/holiday-bedroom.jpg", alt: "Holiday accommodation bedroom prepared and presented for guests" },
+  kitchenGalley: { src: "/images/kitchen-galley.jpg", alt: "Clean kitchen with wiped cabinets and timber floors ready for new tenants" },
+  cleanBath: { src: "/images/clean-bath.jpg", alt: "Sparkling clean bathtub and tiled bathroom wall" },
+  guestBedroom: { src: "/images/guest-bedroom.jpg", alt: "Neatly made guest bedroom after an Airbnb turnover clean" },
 } as const;
 
 export const SERVICE_OPTIONS = [
