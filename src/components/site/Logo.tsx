@@ -7,9 +7,9 @@ export function LogoImage({ className = "" }: { className?: string }) {
 
 export function Logo() {
   return (
-    <Link to="/" className="flex min-w-0 items-center gap-3" aria-label="Cleaning Angels home">
-      <LogoImage className="size-20 shrink-0 shadow-soft sm:size-24" />
-      <span className="text-[0.65rem] font-semibold tracking-[0.2em] text-primary uppercase">Maclean NSW</span>
+    <Link to="/" className="flex min-w-0 items-center gap-3 sm:gap-4" aria-label="Cleaning Angels home">
+      <LogoImage className="size-24 shrink-0 shadow-soft sm:size-28" />
+      <span className="text-[0.8rem] font-bold tracking-[0.18em] text-navy-deep uppercase sm:text-lg">Maclean NSW</span>
     </Link>
   );
 }
